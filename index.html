@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armelle Tsegui — Experte BI &amp; Formatrice Power BI</title>
+<meta name="description" content="Armelle Tsegui — Experte Business Intelligence et formatrice Power BI à Yaoundé. Conception de tableaux de bord, modélisation de données et automatisation du reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050912;
+    --bg-2:#0b1424;
+    --night:#0d1c33;
+    --night-2:#16305a;
+    --night-3:#1f3864;
+    --gold:#f2c811;
+    --gold-2:#e0b309;
+    --gold-soft:rgba(242,200,17,.12);
+    --navy:#1f3864;
+    --blue:#5b8fc9;
+    --txt:#e8edf5;
+    --txt-2:#aab6c8;
+    --txt-3:#7f8ba0;
+    --line:rgba(242,200,17,.16);
+    --card:rgba(255,255,255,.028);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:80px;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--txt);
+    font-family:'Inter',sans-serif; font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  ::selection{background:var(--gold); color:#050912;}
+  h1,h2,h3,h4{font-family:'Outfit',sans-serif; margin:0; line-height:1.15;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,48px);}
+
+  /* ---------------- NAV ---------------- */
+  nav.top{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(5,9,18,.86); backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  nav.top .inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px clamp(20px,5vw,48px);
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .brand{
+    font-family:'Outfit',sans-serif; font-weight:700; font-size:14px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--gold); text-decoration:none; white-space:nowrap;
+  }
+  .navlinks{display:flex; gap:30px;}
+  .navlinks a{
+    font-size:14.5px; color:var(--txt-2); text-decoration:none; transition:color .2s; white-space:nowrap;
+  }
+  .navlinks a:hover, .navlinks a.active{color:var(--gold);}
+  .burger{display:none; background:none; border:none; color:var(--gold); font-size:24px; cursor:pointer; padding:4px 8px;}
+  @media (max-width:940px){
+    .navlinks{
+      position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0;
+      background:rgba(5,9,18,.98); border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+    }
+    .navlinks.open{max-height:420px;}
+    .navlinks a{padding:14px clamp(20px,5vw,48px); border-top:1px solid rgba(255,255,255,.05);}
+    .burger{display:block;}
+  }
+
+  /* ---------------- ambient glows ---------------- */
+  .glow{position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0;}
+  .g-night{background:rgba(22,48,90,.62);}
+  .g-gold{background:rgba(242,200,17,.10);}
+  .g-navy{background:rgba(31,56,100,.38);}
+
+  .cross{position:absolute; pointer-events:none; opacity:.55; z-index:1;}
+  .cross::before,.cross::after{content:""; position:absolute; background:var(--gold); box-shadow:0 0 10px rgba(242,200,17,.7);}
+  .cross::before{width:100%; height:1px; top:50%; left:0;}
+  .cross::after{height:100%; width:1px; left:50%; top:0;}
+
+  /* ---------------- HERO ---------------- */
+  header.hero{position:relative; padding:150px 0 90px; overflow:hidden;}
+  header.hero .g1{width:620px; height:620px; top:-140px; right:-160px;}
+  header.hero .g2{width:520px; height:520px; bottom:-220px; left:-180px;}
+  .hero-grid{position:relative; z-index:2; display:grid; grid-template-columns:1.08fr .92fr; gap:56px; align-items:center;}
+  @media (max-width:940px){ .hero-grid{grid-template-columns:1fr; gap:48px;} }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:9px;
+    border:1px solid var(--line); background:var(--gold-soft);
+    border-radius:999px; padding:9px 18px; font-size:13.5px; color:var(--gold);
+    font-weight:500; margin-bottom:30px;
+  }
+  h1.name{
+    font-size:clamp(2.9rem,7vw,5.2rem); font-weight:800; letter-spacing:-.015em;
+    text-transform:uppercase; color:var(--gold); line-height:.98;
+  }
+  .tagline{
+    font-family:'Outfit',sans-serif; font-size:clamp(1.25rem,2.6vw,1.85rem);
+    font-weight:300; color:var(--txt); margin-top:20px; letter-spacing:.01em;
+  }
+  .tagline span{color:var(--gold); opacity:.55; margin:0 6px;}
+  .hero-p{color:var(--txt-2); margin-top:22px; max-width:50ch; font-size:1.02rem;}
+  .btns{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:8px;
+    font-family:'Outfit',sans-serif; font-weight:500; font-size:15px; text-decoration:none; transition:all .22s; cursor:pointer;
+  }
+  .btn-gold{background:var(--gold); color:#061020; border:1px solid var(--gold);}
+  .btn-gold:hover{background:var(--gold-2); transform:translateY(-2px);}
+  .btn-ghost{background:rgba(255,255,255,.04); color:var(--txt); border:1px solid rgba(255,255,255,.14);}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+
+  .stats{display:flex; gap:clamp(18px,2.4vw,32px); margin-top:44px; flex-wrap:wrap;}
+  .stat b{display:block; font-family:'Outfit',sans-serif; font-size:clamp(1.75rem,2.4vw,2.1rem); font-weight:600; color:var(--gold); line-height:1;}
+  .stat span{font-size:12px; color:var(--txt-3); display:block; margin-top:7px; white-space:nowrap;}
+
+  /* medallion — placeholder for the portrait */
+  .medallion-wrap{display:flex; justify-content:center; position:relative;}
+  .medallion{
+    width:min(380px,80vw); aspect-ratio:1; border-radius:50%; position:relative;
+    padding:9px; background:linear-gradient(150deg,var(--gold),rgba(242,200,17,.15) 45%,var(--gold-2));
+    box-shadow:0 0 70px rgba(242,200,17,.22);
+  }
+  .medallion .inner{
+    width:100%; height:100%; border-radius:50%; overflow:hidden; position:relative;
+    background:radial-gradient(circle at 32% 28%, #2d4a78, var(--navy) 55%, #14243f);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .medallion .inner img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.05);}
+  .medallion svg{width:78%; height:78%;}
+  .med-cap{
+    position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+    background:var(--bg-2); border:1px solid var(--line); color:var(--gold);
+    font-family:'Outfit',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    padding:8px 20px; border-radius:999px; white-space:nowrap;
+  }
+
+  /* ---------------- feature strip ---------------- */
+  .feat{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:96px; position:relative; z-index:2;}
+  @media (max-width:860px){ .feat{grid-template-columns:1fr;} }
+  .fcard{
+    background:linear-gradient(160deg, rgba(31,56,100,.48), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:28px 26px; transition:border-color .25s, transform .25s;
+  }
+  .fcard:hover{border-color:var(--line); transform:translateY(-3px);}
+  .ico{
+    width:44px; height:44px; border-radius:10px; background:var(--gold-soft); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px; color:var(--gold);
+  }
+  .ico svg{width:21px; height:21px; stroke:currentColor; fill:none; stroke-width:1.7;}
+  .fcard h3{font-size:1.12rem; font-weight:600; margin-bottom:9px;}
+  .fcard p{font-size:.93rem; color:var(--txt-2); margin:0;}
+
+  /* ---------------- sections ---------------- */
+  section{position:relative; padding:110px 0; overflow:hidden;}
+  .sec-title{
+    text-align:center; font-size:clamp(1.7rem,4vw,2.5rem); font-weight:700;
+    text-transform:uppercase; letter-spacing:.08em; color:var(--gold); margin-bottom:16px;
+  }
+  .sec-sub{text-align:center; color:var(--txt-2); max-width:58ch; margin:0 auto 62px; font-size:1.02rem;}
+  .divider{width:70px; height:2px; background:var(--gold); margin:0 auto 26px; opacity:.8;}
+
+  /* ---------------- profil ---------------- */
+  .bio-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:start; position:relative; z-index:2;}
+  @media (max-width:940px){ .bio-grid{grid-template-columns:1fr;} }
+  .bio-visual{position:relative;}
+  .bio-frame{
+    border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);
+    aspect-ratio:3/4; background:linear-gradient(165deg, var(--night-3), var(--night) 70%, #081426);
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .bio-frame img{width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block;}
+  .bio-frame .ph{text-align:center; padding:30px; color:var(--txt-3); font-size:13px;}
+  .bio-frame .ph svg{width:52px; height:52px; stroke:var(--gold); fill:none; stroke-width:1.2; opacity:.75; margin-bottom:14px;}
+  .bio-quote{
+    border-left:3px solid var(--gold); padding-left:18px; margin-top:26px;
+    font-style:italic; color:var(--txt); font-size:1.02rem; line-height:1.55;
+  }
+  .bio-body h3{font-size:1.5rem; font-weight:600; margin-bottom:20px; line-height:1.35;}
+  .bio-body h3 em{font-style:normal; color:var(--gold);}
+  .bio-body p{color:var(--txt-2); margin:0 0 18px;}
+  .bio-body p strong{color:var(--txt); font-weight:500;}
+  .facts{display:grid; grid-template-columns:1fr 1fr; gap:22px 30px; margin-top:34px; padding-top:30px; border-top:1px solid rgba(255,255,255,.09);}
+  @media (max-width:600px){ .facts{grid-template-columns:1fr;} }
+  .fact{display:flex; gap:13px;}
+  .fact svg{width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.6; flex-shrink:0; margin-top:3px;}
+  .fact b{display:block; font-family:'Outfit',sans-serif; font-size:.98rem; font-weight:600;}
+  .fact span{font-size:.85rem; color:var(--txt-3);}
+
+  /* ---------------- expertise ---------------- */
+  .exp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; position:relative; z-index:2;}
+  @media (max-width:940px){ .exp-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .exp-grid{grid-template-columns:1fr;} }
+  .ecard{
+    background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:30px 26px;
+    transition:border-color .25s, transform .25s, background .25s;
+  }
+  .ecard:hover{border-color:var(--line); transform:translateY(-4px); background:linear-gradient(160deg, rgba(31,56,100,.45), rgba(255,255,255,.02));}
+  .ecard h3{font-size:1.12rem; font-weight:600; margin-bottom:8px;}
+  .ecard .sub{color:var(--gold); font-size:.85rem; margin-bottom:13px; font-family:'Outfit',sans-serif;}
+  .ecard p{font-size:.92rem; color:var(--txt-2); margin:0;}
+
+  /* ---------------- parcours ---------------- */
+  .xp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; position:relative; z-index:2;}
+  @media (max-width:940px){ .xp-grid{grid-template-columns:1fr;} }
+  .xcard{
+    background:linear-gradient(165deg, rgba(31,56,100,.36), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:30px 26px;
+  }
+  .xcard .date{font-family:'Outfit',sans-serif; font-size:12.5px; letter-spacing:.09em; color:var(--gold); text-transform:uppercase; margin-bottom:14px;}
+  .xcard h3{font-size:1.14rem; font-weight:600; margin-bottom:5px;}
+  .xcard .org{color:var(--blue); font-size:.9rem; margin-bottom:16px;}
+  .xcard ul{margin:0; padding-left:18px; color:var(--txt-2); font-size:.91rem;}
+  .xcard li{margin-bottom:8px;}
+
+  .awards-title{text-align:center; font-size:1.35rem; font-weight:600; margin:70px 0 28px; color:var(--txt);}
+  .awards{display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:840px; margin:0 auto; position:relative; z-index:2;}
+  @media (max-width:640px){ .awards{grid-template-columns:1fr;} }
+  .award{
+    display:flex; align-items:flex-start; gap:14px; background:var(--card);
+    border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:17px 20px; font-size:.94rem;
+  }
+  .award svg{width:19px; height:19px; stroke:var(--gold); fill:none; stroke-width:1.6; flex-shrink:0; margin-top:3px;}
+  .award b{font-family:'Outfit',sans-serif; font-weight:600; line-height:1.35; display:block;}
+  .award small{display:block; color:var(--txt-3); font-size:.8rem;}
+
+  /* ---------------- réalisations (case studies) ---------------- */
+  .cases{display:flex; flex-direction:column; gap:16px; position:relative; z-index:2;}
+  .case{
+    background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden;
+    transition:border-color .25s;
+  }
+  .case.open{border-color:var(--line);}
+  .case-head{
+    width:100%; text-align:left; background:none; border:none; color:inherit; cursor:pointer;
+    padding:26px 28px; display:flex; align-items:center; gap:22px; font-family:inherit;
+  }
+  .case-head:focus-visible{outline:2px solid var(--gold); outline-offset:-3px;}
+  .case-idx{
+    font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; color:var(--gold);
+    border:1px solid var(--line); background:var(--gold-soft); width:38px; height:38px; border-radius:9px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .case-t{flex:1;}
+  .case-t h3{font-size:1.1rem; font-weight:600; line-height:1.35;}
+  .case-t .org{color:var(--blue); font-size:.85rem; margin-top:4px; font-family:'Outfit',sans-serif;}
+  .case-chev{color:var(--gold); transition:transform .3s; flex-shrink:0;}
+  .case-chev svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2;}
+  .case.open .case-chev{transform:rotate(180deg);}
+  .case-body{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+  .case-inner{padding:0 28px 30px; border-top:1px solid rgba(255,255,255,.07); margin-top:0; padding-top:26px;}
+  .case-cols{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+  @media (max-width:780px){ .case-cols{grid-template-columns:1fr; gap:22px;} }
+  .case-block h4{
+    font-family:'Outfit',sans-serif; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px; font-weight:600;
+  }
+  .case-block p{font-size:.93rem; color:var(--txt-2); margin:0 0 12px;}
+  .case-block ul{margin:0; padding-left:18px; color:var(--txt-2); font-size:.91rem;}
+  .case-block li{margin-bottom:6px;}
+  .impact{
+    background:linear-gradient(120deg, rgba(242,200,17,.09), rgba(255,255,255,.01));
+    border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-top:24px;
+  }
+  .impact h4{color:var(--gold);}
+  .impact p{color:var(--txt); margin:0; font-size:.95rem;}
+  .techs{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;}
+  .techs span{
+    font-family:'Outfit',sans-serif; font-size:11.5px; letter-spacing:.04em; color:var(--txt-2);
+    border:1px solid rgba(255,255,255,.13); border-radius:999px; padding:5px 13px;
+  }
+
+  /* ---------------- bibliothèque ---------------- */
+  .filters{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:46px; position:relative; z-index:2;}
+  .filters button{
+    font-family:'Outfit',sans-serif; font-size:13px; background:transparent; color:var(--txt-2);
+    border:1px solid rgba(255,255,255,.13); padding:9px 20px; border-radius:999px; cursor:pointer; transition:all .2s;
+  }
+  .filters button:hover{color:var(--gold); border-color:var(--line);}
+  .filters button.active{background:var(--gold); color:#061020; border-color:var(--gold);}
+  .lib{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; position:relative; z-index:2;}
+  @media (max-width:940px){ .lib{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .lib{grid-template-columns:1fr;} }
+
+  /* ---------------- visionneuse ---------------- */
+  .dash{
+    background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden;
+    transition:transform .25s, border-color .25s; display:flex; flex-direction:column;
+    padding:0; margin:0; text-align:left; font:inherit; color:inherit; cursor:zoom-in; width:100%;
+  }
+  .dash:hover{transform:translateY(-4px); border-color:var(--line);}
+  .dash:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .dash .shot{display:block; aspect-ratio:16/10; background:#0a1424; position:relative; border-bottom:1px solid rgba(255,255,255,.07);}
+  .dash .shot > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center;}
+  .dash .info{display:block; padding:20px 22px 24px;}
+  .dash .h4{display:block; font-family:'Outfit',sans-serif; font-size:1.05rem; font-weight:600; margin-bottom:9px; line-height:1.35;}
+  .dash .p{display:block; font-size:.88rem; color:var(--txt-2); line-height:1.55;}
+  .shot-zoom{
+    position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px; border-radius:50%;
+    background:rgba(5,9,18,.8); border:1px solid rgba(255,255,255,.16); display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .22s;
+  }
+  .shot-zoom svg{width:16px; height:16px; stroke:var(--gold); fill:none; stroke-width:1.8;}
+  .dash:hover .shot-zoom, .dash:focus-visible .shot-zoom{opacity:1;}
+
+  .viewer{
+    position:fixed; inset:0; z-index:200; background:rgba(3,6,13,.94); backdrop-filter:blur(8px);
+    display:none; align-items:center; justify-content:center; padding:clamp(16px,4vw,48px);
+  }
+  .viewer.open{display:flex;}
+  .viewer figure{margin:0; max-width:1500px; width:100%;}
+  .viewer img{
+    width:100%; height:auto; max-height:80vh; object-fit:contain; border-radius:10px;
+    border:1px solid rgba(255,255,255,.12); background:#0a1424;
+  }
+  .viewer figcaption{
+    margin-top:16px; text-align:center; font-family:'Outfit',sans-serif; font-size:1.02rem; color:var(--txt);
+  }
+  .viewer-close{
+    position:absolute; top:20px; right:24px; width:44px; height:44px; border-radius:50%;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); color:var(--gold);
+    font-size:24px; line-height:1; cursor:pointer; transition:border-color .2s;
+  }
+  .viewer-close:hover{border-color:var(--gold);}
+  .viewer-nav{
+    position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); color:var(--gold);
+    font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color .2s;
+  }
+  .viewer-nav:hover{border-color:var(--gold);}
+  .viewer-prev{left:16px;} .viewer-next{right:16px;}
+  @media (max-width:640px){ .viewer-nav{display:none;} }
+
+  .dash .tag{
+    display:inline-block; font-family:'Outfit',sans-serif; font-size:10.5px; letter-spacing:.11em;
+    text-transform:uppercase; color:var(--gold); background:var(--gold-soft); border:1px solid var(--line);
+    padding:4px 11px; border-radius:999px; margin-bottom:12px;
+  }
+  .lib-note{
+    max-width:760px; margin:46px auto 0; text-align:center; font-size:.87rem; color:var(--txt-3);
+    border:1px dashed rgba(255,255,255,.14); border-radius:10px; padding:18px 24px; position:relative; z-index:2;
+  }
+  .lib-note code{color:var(--gold); font-family:ui-monospace,monospace; font-size:.85em;}
+
+  /* ---------------- compétences ---------------- */
+  .skills{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; position:relative; z-index:2;}
+  @media (max-width:940px){ .skills{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .skills{grid-template-columns:1fr;} }
+  .skill{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:26px 24px;}
+  .skill h4{font-family:'Outfit',sans-serif; font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; font-weight:600;}
+  .skill p{margin:0; font-size:.93rem; color:var(--txt-2);}
+
+  /* ---------------- formation ---------------- */
+  .edu{display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:940px; margin:0 auto; position:relative; z-index:2;}
+  @media (max-width:780px){ .edu{grid-template-columns:1fr;} }
+  .edu-card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:28px 26px;}
+  .edu-card > h4{font-family:'Outfit',sans-serif; font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600;}
+  .edu-item{padding:13px 0; border-top:1px solid rgba(255,255,255,.07);}
+  .edu-item:first-of-type{border-top:none; padding-top:0;}
+  .edu-item b{display:block; font-family:'Outfit',sans-serif; font-weight:500; font-size:1rem;}
+  .edu-item span{font-size:.85rem; color:var(--txt-3);}
+
+  /* ---------------- contact ---------------- */
+  #contact{padding-bottom:60px;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:820px; margin:0 auto; position:relative; z-index:2;}
+  @media (max-width:640px){ .contact-grid{grid-template-columns:1fr;} }
+  .cbox{
+    display:flex; align-items:center; gap:16px; background:var(--card);
+    border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:20px 22px;
+    text-decoration:none; transition:border-color .22s, transform .22s;
+  }
+  .cbox:hover{border-color:var(--gold); transform:translateY(-2px);}
+  .cbox svg{width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.6; flex-shrink:0;}
+  .cbox b{display:block; font-family:'Outfit',sans-serif; font-weight:500; font-size:1rem;}
+  .cbox span{font-size:.85rem; color:var(--txt-3);}
+
+  footer{border-top:1px solid rgba(255,255,255,.07); padding:34px 0; text-align:center; position:relative; z-index:2;}
+  footer p{margin:0; font-size:.85rem; color:var(--txt-3);}
+  footer .sig{margin-top:8px; font-family:'Outfit',sans-serif; font-size:.85rem; color:var(--gold); opacity:.85;}
+
+
+  /* ---------------- logos outils ---------------- */
+  .lgo{width:26px; height:26px; flex-shrink:0;}
+  .toolstrip{
+    display:flex; align-items:center; gap:26px; flex-wrap:wrap; margin-top:46px;
+    padding-top:28px; border-top:1px solid rgba(255,255,255,.09);
+  }
+  .toolstrip .lbl{
+    font-family:'Outfit',sans-serif; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--txt-3); width:100%; margin-bottom:-6px;
+  }
+  .tool{display:flex; align-items:center; gap:9px; opacity:.9; transition:opacity .2s;}
+  .tool:hover{opacity:1;}
+  .tool .lgo{width:24px; height:24px;}
+  .tool span{font-family:'Outfit',sans-serif; font-size:13.5px; color:var(--txt-2);}
+
+  .ecard-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;}
+  .ecard-top .lgo{width:28px; height:28px;}
+
+  .case-tools{display:flex; gap:7px; align-items:center; flex-shrink:0;}
+  .case-tools .lgo{width:24px; height:24px;}
+  @media (max-width:640px){ .case-tools{display:none;} }
+
+  .shot-badge{
+    position:absolute; bottom:12px; right:12px; z-index:2;
+    display:flex; align-items:center; gap:7px;
+    background:rgba(8,16,30,.86); border:1px solid rgba(255,255,255,.14);
+    border-radius:999px; padding:6px 13px 6px 9px; backdrop-filter:blur(6px);
+  }
+  .shot-badge .lgo{width:17px; height:17px;}
+  .shot-badge span{font-family:'Outfit',sans-serif; font-size:11px; color:var(--txt-2); letter-spacing:.02em;}
+
+  .skill-head{display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+  .skill-head .lgo{width:22px; height:22px;}
+  .skill-head h4{margin-bottom:0;}
+
+  .rv{opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease;}
+  .rv.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="pbiG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7d54a"/><stop offset="100%" stop-color="#e8a800"/>
+    </linearGradient>
+    <linearGradient id="xlG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#33b06a"/><stop offset="100%" stop-color="#137245"/>
+    </linearGradient>
+    <linearGradient id="paG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4aa3f0"/><stop offset="100%" stop-color="#1f5fbf"/>
+    </linearGradient>
+  </defs>
+
+  <symbol id="lg-powerbi" viewBox="0 0 32 32">
+    <rect x="20.5" y="4" width="7.5" height="24" rx="1.6" fill="url(#pbiG)"/>
+    <rect x="12.2" y="9.5" width="7.5" height="18.5" rx="1.6" fill="url(#pbiG)" opacity=".82"/>
+    <rect x="4" y="16" width="7.5" height="12" rx="1.6" fill="url(#pbiG)" opacity=".62"/>
+  </symbol>
+
+  <symbol id="lg-excel" viewBox="0 0 32 32">
+    <path d="M18 3h9.2A1.8 1.8 0 0 1 29 4.8v22.4a1.8 1.8 0 0 1-1.8 1.8H18z" fill="#1d6f47"/>
+    <rect x="18" y="3" width="11" height="8.6" fill="#2f9c62" opacity=".55"/>
+    <rect x="18" y="20.4" width="11" height="8.6" fill="#0f5333" opacity=".5"/>
+    <rect x="2.6" y="6" width="17" height="20" rx="2" fill="url(#xlG)"/>
+    <path d="M7.4 11.4l3.4 4.6-3.6 4.8h2.9l2.2-3.2 2.2 3.2h3l-3.6-4.9 3.4-4.5h-2.9l-2 3-2-3z" fill="#fff"/>
+  </symbol>
+
+  <symbol id="lg-powerautomate" viewBox="0 0 32 32">
+    <rect x="3" y="3" width="26" height="26" rx="6" fill="url(#paG)"/>
+    <path d="M17.6 8l-7.2 9.4h4.6L13.8 24l7.4-9.7h-4.7z" fill="#fff"/>
+  </symbol>
+
+  <symbol id="lg-sql" viewBox="0 0 32 32">
+    <ellipse cx="16" cy="8" rx="10.5" ry="4.2" fill="#5b8fc9"/>
+    <path d="M5.5 8v16c0 2.3 4.7 4.2 10.5 4.2S26.5 26.3 26.5 24V8" fill="none" stroke="#5b8fc9" stroke-width="2.2"/>
+    <path d="M5.5 16c0 2.3 4.7 4.2 10.5 4.2S26.5 18.3 26.5 16" fill="none" stroke="#5b8fc9" stroke-width="2.2" opacity=".7"/>
+  </symbol>
+
+  <symbol id="lg-python" viewBox="0 0 32 32">
+    <path d="M16 3c-4 0-6.4 1.5-6.4 4.3v3.2h6.6v1.1H7.4C4.5 11.6 3 13.6 3 16.5s1.4 4.7 4.3 4.7h2.3v-3.6c0-2.7 2.3-4.9 5-4.9h5.9c2.3 0 4.2-1.9 4.2-4.2V7.3C24.7 4.7 21.6 3 16 3zm-3.7 2.4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z" fill="#4a86c8"/>
+    <path d="M16 29c4 0 6.4-1.5 6.4-4.3v-3.2h-6.6v-1.1h8.8c2.9 0 4.4-2 4.4-4.9s-1.4-4.7-4.3-4.7h-2.3v3.6c0 2.7-2.3 4.9-5 4.9h-5.9c-2.3 0-4.2 1.9-4.2 4.2v3.2C7.3 27.3 10.4 29 16 29zm3.7-2.4a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6z" fill="#f2c811"/>
+  </symbol>
+</svg>
+
+<nav class="top">
+  <div class="inner">
+    <a href="#accueil" class="brand">Armelle Tsegui</a>
+    <div class="navlinks" id="navlinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#profil">Profil</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#bibliotheque">Bibliothèque</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="accueil">
+  <div class="glow g-night g1"></div>
+  <div class="glow g-navy g2"></div>
+  <div class="cross" style="width:56px;height:56px;top:120px;right:16%;"></div>
+  <div class="cross" style="width:38px;height:38px;bottom:180px;left:44%;opacity:.35;"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill">✦ Architecte de Décision</span>
+        <h1 class="name">Armelle<br>Tsegui</h1>
+        <p class="tagline">Data <span>|</span> Business Intelligence <span>|</span> Formation</p>
+        <p class="hero-p">Experte BI et formatrice Power BI. Je conçois des tableaux de bord et des systèmes de reporting automatisés qui font passer les organisations de l'intuition à la décision pilotée par la donnée.</p>
+        <div class="btns">
+          <a href="#realisations" class="btn btn-gold">Voir mes réalisations →</a>
+          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        </div>
+        <div class="toolstrip">
+          <span class="lbl">Outils du quotidien</span>
+          <span class="tool"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="tool"><svg class="lgo"><use href="#lg-excel"/></svg><span>Excel</span></span>
+          <span class="tool"><svg class="lgo"><use href="#lg-powerautomate"/></svg><span>Power Automate</span></span>
+          <span class="tool"><svg class="lgo"><use href="#lg-sql"/></svg><span>SQL</span></span>
+          <span class="tool"><svg class="lgo"><use href="#lg-python"/></svg><span>Python</span></span>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>5+</b><span>Ans d'expérience BI</span></div>
+          <div class="stat"><b>30+</b><span>Professionnels formés</span></div>
+          <div class="stat"><b>3</b><span>Secteurs couverts</span></div>
+          <div class="stat"><b>60%</b><span>Temps de reporting gagné</span></div>
+        </div>
+      </div>
+      <div class="medallion-wrap">
+        <div class="medallion">
+          <div class="inner">
+            <img src="images/armelle-profil.jpg" alt="Portrait d'Armelle Tsegui, experte Business Intelligence">
+          </div>
+          <span class="med-cap">Yaoundé, Cameroun</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="fcard rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Tableaux de bord</h3>
+        <p>Conception de rapports Power BI actionnables, du recueil des besoins jusqu'au déploiement auprès des directions.</p>
+      </div>
+      <div class="fcard rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6a8 3 0 1 0 16 0A8 3 0 1 0 4 6"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>Automatisation</h3>
+        <p>Modélisation, DAX et Power Automate pour transformer un reporting manuel chronophage en processus fiable.</p>
+      </div>
+      <div class="fcard rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Formation</h3>
+        <p>Transfert de compétences à des équipes non techniques : 30+ analystes, managers et équipes finance formés.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PROFIL ================= -->
+<section id="profil">
+  <div class="glow g-night" style="width:480px;height:480px;top:10%;left:-220px;"></div>
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Profil</h2>
+    <p class="sec-sub rv">Traduire des besoins métier complexes en tableaux de bord que les décideurs ouvrent vraiment.</p>
+
+    <div class="bio-grid">
+      <div class="bio-visual rv">
+        <div class="bio-frame">
+          <img src="images/armelle-portrait.jpg" alt="Armelle Tsegui en intervention de formation">
+        </div>
+        <p class="bio-quote">« Une donnée qui ne change pas une décision n'a pas encore trouvé son architecte. »</p>
+      </div>
+
+      <div class="bio-body rv">
+        <h3>Experte en Business Intelligence, <em>formatrice</em> et consultante indépendante</h3>
+        <p>Plus de <strong>5 ans d'expérience</strong> en conception de solutions Power BI, modélisation de données et pilotage de la performance. Intervenue auprès d'organisations de tailles variées — de la startup à la grande entreprise — dans les secteurs de l'énergie, de la finance et des services.</p>
+        <p>Reconnue pour sa capacité à traduire des besoins métier complexes en <strong>tableaux de bord actionnables</strong>, et à transférer ces compétences à des équipes non techniques. Mes missions vont du diagnostic et de la modélisation jusqu'à la formation des utilisateurs finaux.</p>
+        <p>Diplômée d'un <strong>Master 2 en Modélisation Mathématique appliquée à l'Économie et la Finance</strong>, je travaille sous ma marque <strong>Data &amp; Décision</strong>, au service des entreprises et institutions d'Afrique francophone.</p>
+
+        <div class="facts">
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <div><b>Multi-secteurs</b><span>Énergie, finance, distribution, hôtellerie</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14a5 5 0 1 0-6.2 0"/><path d="M12 2v1"/></svg>
+            <div><b>Data &amp; Décision</b><span>Marque de conseil et de formation BI</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.6 6.6L22 9.3l-5 4.7 1.3 7L12 17.6 5.7 21l1.3-7-5-4.7 7.4-.7z"/></svg>
+            <div><b>Certifiée Microsoft</b><span>Data Analysis &amp; Visualize Data in Power BI</span></div>
+          </div>
+          <div class="fact">
+            <svg viewBox="0 0 24 24"><path d="M2 12h20"/><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg>
+            <div><b>Bilingue</b><span>Français (natif) · Anglais (professionnel)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section id="expertise" style="background:linear-gradient(180deg, transparent, rgba(22,48,90,.30), transparent);">
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Domaines d'intervention</h2>
+    <p class="sec-sub rv">Six façons d'intervenir sur votre chaîne de données, du besoin métier au rapport diffusé.</p>
+    <div class="exp-grid">
+      <div class="ecard rv"><div class="ecard-top"><h3>Conception de tableaux de bord</h3><svg class="lgo"><use href="#lg-powerbi"/></svg></div><div class="sub">Power BI Desktop &amp; Service</div><p>Du recueil des besoins à la mise en production : structure du rapport, choix des visuels, hiérarchie des indicateurs, navigation multi-pages.</p></div>
+      <div class="ecard rv"><div class="ecard-top"><h3>Modélisation de données</h3><svg class="lgo"><use href="#lg-powerbi"/></svg></div><div class="sub">Star schema · DAX · RLS</div><p>Modèles en étoile robustes, relations many-to-many maîtrisées, table de dates, sécurité au niveau des lignes et mesures DAX documentées.</p></div>
+      <div class="ecard rv"><div class="ecard-top"><h3>Automatisation du reporting</h3><svg class="lgo"><use href="#lg-powerautomate"/></svg></div><div class="sub">Power Query · Power Automate</div><p>Suppression du travail manuel récurrent : actualisation planifiée, diffusion automatique des rapports, contrôles de cohérence intégrés.</p></div>
+      <div class="ecard rv"><div class="ecard-top"><h3>Intégration multi-sources</h3><svg class="lgo"><use href="#lg-sql"/></svg></div><div class="sub">SQL · PostgreSQL · Excel · GSheets</div><p>Connexion et consolidation de sources hétérogènes, nettoyage et transformation des données avant restitution.</p></div>
+      <div class="ecard rv"><div class="ecard-top"><h3>Systèmes Excel avancés</h3><svg class="lgo"><use href="#lg-excel"/></svg></div><div class="sub">Formules · VBA · Réconciliation</div><p>Outils de contrôle de gestion sur mesure : réconciliation bancaire, calcul de temps de travail, détection d'anomalies.</p></div>
+      <div class="ecard rv"><div class="ecard-top"><h3>Formation Power BI</h3><svg class="lgo"><use href="#lg-powerbi"/></svg></div><div class="sub">Sessions en ligne &amp; en présentiel</div><p>Programmes structurés pour débutants à confirmés, cas pratiques ancrés dans le contexte des entreprises africaines.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARCOURS ================= -->
+<section id="parcours">
+  <div class="glow g-navy" style="width:520px;height:520px;bottom:-10%;right:-200px;"></div>
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Parcours &amp; reconnaissance</h2>
+    <p class="sec-sub rv">Cinq années sur le terrain, de la grande distribution à l'énergie hors-réseau.</p>
+
+    <div class="xp-grid">
+      <div class="xcard rv">
+        <div class="date">Mai 2024 — Présent</div>
+        <h3>Experte BI &amp; Formatrice Power BI</h3>
+        <div class="org">Activité indépendante · Data &amp; Décision</div>
+        <ul>
+          <li>Conception et déploiement de tableaux de bord pour des clients multi-secteurs.</li>
+          <li>Modélisation de données complexes (star schema, DAX, Power Query).</li>
+          <li>Formations BI auprès de 30+ professionnels : analystes, managers, équipes finance.</li>
+          <li>Ingénierie pédagogique : curricula débutant, intermédiaire et expert.</li>
+        </ul>
+      </div>
+      <div class="xcard rv">
+        <div class="date">Mai 2024 — Mai 2025</div>
+        <h3>Business Intelligence Analyst</h3>
+        <div class="org">EDF-Upowa · Yaoundé</div>
+        <ul>
+          <li>Dashboards décisionnels pour 3 directions : commerciale, logistique, DG.</li>
+          <li>Intégration multi-sources : PostgreSQL, Google Sheets, Excel via Power Query.</li>
+          <li>Modèle en étoile et mesures DAX pour le suivi des KPIs opérationnels.</li>
+          <li>Réduction du temps de reporting manuel de l'ordre de 60%.</li>
+        </ul>
+      </div>
+      <div class="xcard rv">
+        <div class="date">Sept. 2021 — Avril 2024</div>
+        <h3>Data Analyst</h3>
+        <div class="org">Socsuba Sarl · Yaoundé</div>
+        <ul>
+          <li>Tableaux de bord finance, comptabilité et contrôle de gestion (Power BI, Excel).</li>
+          <li>Rapports mensuels et annuels pour la direction générale, avec analyse des écarts.</li>
+          <li>Automatisation de la réconciliation et catégorisation des transactions bancaires.</li>
+          <li>Formation interne des équipes aux outils de reporting déployés.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="awards-title rv">Formation &amp; certifications</h3>
+    <div class="awards">
+      <div class="award rv"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><div><b>Master 2 — Modélisation Mathématique en Économie et Finance</b><small>ENSP Yaoundé · 2022</small></div></div>
+      <div class="award rv"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><div><b>Licence en Mathématiques</b><small>Université de Yaoundé 1 · 2017</small></div></div>
+      <div class="award rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg><div><b>Data Analysis in Power BI</b><small>Microsoft</small></div></div>
+      <div class="award rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg><div><b>Visualize Data in Power BI</b><small>Microsoft</small></div></div>
+      <div class="award rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg><div><b>Power BI Certification</b><small>Codebasics</small></div></div>
+      <div class="award rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg><div><b>Excel for Data Analysis</b><small>Codebasics</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RÉALISATIONS ================= -->
+<section id="realisations" style="background:linear-gradient(180deg, transparent, rgba(22,48,90,.30), transparent);">
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Réalisations</h2>
+    <p class="sec-sub rv">Six études de cas — contexte, solution, résultat et impact. Cliquez sur un projet pour le détail.</p>
+
+    <div class="cases">
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">01</span>
+          <span class="case-t">
+            <h3>Automatisation du reporting commercial de 30+ supermarchés avec Power BI</h3>
+            <span class="org">SOCSUBA · Grande distribution</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-powerbi"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>SOCSUBA est une entreprise de grande distribution disposant de plus de 30 supermarchés répartis dans 4 régions du Cameroun. La direction avait besoin d'un reporting mensuel permettant de suivre rapidement la performance globale de l'entreprise et celle de chaque agence.</p>
+              <h4>Le résultat</h4>
+              <p>Le reporting était actualisé chaque mois en quelques clics. Chaque 5 du mois, les statistiques globales et individuelles des agences étaient disponibles, prêtes à être imprimées et transmises aux responsables concernés.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Un rapport Power BI automatisé, directement alimenté par la base de données de l'entreprise, permettant de suivre :</p>
+              <ul>
+                <li>Le chiffre d'affaires global</li>
+                <li>Le Top 5 des agences</li>
+                <li>L'évolution du CA par rapport aux années précédentes</li>
+                <li>La répartition du CA par moyen de paiement</li>
+                <li>Les ventes journalières moyennes</li>
+                <li>La performance détaillée de chaque agence</li>
+              </ul>
+              <p style="margin-top:12px;">Chaque supermarché disposait de sa propre page d'analyse, soit plus de 30 pages au total.</p>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Un reporting mensuel complexe transformé en processus automatisé, centralisé et standardisé, offrant à la direction une vision claire de la performance du réseau.</p></div>
+          <div class="techs"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Base de données</span><span>Modélisation des données</span></div>
+        </div></div>
+      </article>
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">02</span>
+          <span class="case-t">
+            <h3>Automatisation du reporting hôtelier avec Power BI</h3>
+            <span class="org">SOCSUBA · Hôtellerie &amp; restauration</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-powerbi"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>Dans le cadre des activités hôtelières de SOCSUBA, la direction avait besoin d'un reporting mensuel permettant de suivre la performance de l'hôtel, des chambres, de la restauration et des dépenses.</p>
+              <h4>Le résultat</h4>
+              <p>Les indicateurs étaient automatiquement mis à jour et disponibles dans un rapport structuré, prêt à être imprimé et transmis aux responsables concernés.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Un rapport Power BI automatisé centralisant les principaux indicateurs de performance :</p>
+              <ul>
+                <li>Le RevPAR</li>
+                <li>Le taux d'occupation</li>
+                <li>Le prix moyen des chambres</li>
+                <li>Les types de chambres les plus performants</li>
+                <li>Les statistiques de restauration et le nombre de plats servis</li>
+                <li>Les dépenses de l'hôtel et leur répartition par type</li>
+              </ul>
+              <p style="margin-top:12px;">Le rapport était actualisé chaque mois à partir des données de l'entreprise.</p>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Centralisation des données de l'hôtel et vision claire, chaque mois, de sa performance commerciale et financière — facilitant le suivi de l'activité et la prise de décision.</p></div>
+          <div class="techs"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Modélisation des données</span></div>
+        </div></div>
+      </article>
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">03</span>
+          <span class="case-t">
+            <h3>Automatisation de la réconciliation des recettes de 30 agences avec Excel</h3>
+            <span class="org">SOCSUBA · Contrôle de gestion</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-excel"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>SOCSUBA devait suivre les recettes collectées dans 30 agences, puis s'assurer que chaque montant était correctement reversé et retrouvé dans les relevés bancaires. L'enjeu principal : tracer chaque recette de son point de collecte jusqu'à sa destination finale.</p>
+              <h4>Le résultat</h4>
+              <p>Chaque montant pouvait être suivi de manière précise, depuis l'agence qui l'avait collecté jusqu'à son apparition sur le relevé bancaire.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Un système Excel automatisé de réconciliation des recettes, permettant de rapprocher les différents flux financiers :</p>
+              <ul>
+                <li>Suivre les recettes collectées par agence</li>
+                <li>Tracer chaque montant jusqu'au relevé bancaire</li>
+                <li>Vérifier la destination de chaque recette</li>
+                <li>Identifier rapidement les écarts et anomalies</li>
+                <li>Centraliser le suivi des flux financiers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Un meilleur suivi des espèces, une détection plus rapide des anomalies et une visibilité renforcée sur les recettes collectées et leur destination.</p></div>
+          <div class="techs"><span>Excel</span><span>Formules avancées</span><span>Réconciliation de données</span><span>Détection d'anomalies</span></div>
+        </div></div>
+      </article>
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">04</span>
+          <span class="case-t">
+            <h3>Automatisation du calcul des absences de 200+ employés avec Excel</h3>
+            <span class="org">SOCSUBA · Ressources humaines</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-excel"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>SOCSUBA comptait plus de 200 employés répartis dans 30 agences, avec des horaires de travail différents selon les agences. Le calcul des absences devait tenir compte des horaires spécifiques, des pointages journaliers et des déplacements d'employés entre agences.</p>
+              <h4>Le résultat</h4>
+              <p>À partir des pointages journaliers en entrée, le système génère automatiquement la liste des employés avec leur temps d'absence calculé avec précision.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Un système Excel automatisé analysant les pointages journaliers et appliquant les règles propres à chaque agence :</p>
+              <ul>
+                <li>Les horaires spécifiques à chaque agence</li>
+                <li>Les pointages journaliers des employés</li>
+                <li>Les déplacements entre agences</li>
+                <li>Le temps réellement travaillé</li>
+                <li>Les absences calculées à la minute près</li>
+              </ul>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Une équipe de 3 personnes a gagné plusieurs jours de travail à chaque cycle de traitement. Une tâche complexe et chronophage transformée en processus automatisé, fiable et adapté aux spécificités des 30 agences.</p></div>
+          <div class="techs"><span>Excel</span><span>Automatisation</span><span>Formules avancées</span><span>Gestion des horaires</span><span>Analyse des pointages</span></div>
+        </div></div>
+      </article>
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">05</span>
+          <span class="case-t">
+            <h3>Automatisation du calcul des commissions de 500+ agents terrain avec Power BI</h3>
+            <span class="org">EDF-Upowa · Énergie</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-powerbi"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>EDF-Upowa s'appuie sur un réseau de plus de 500 agents terrain impliqués dans la vente, l'installation et la maintenance de ses produits. Le calcul des commissions était complexe en raison de la diversité des profils d'agents, des produits concernés et des règles de rémunération associées à chaque activité.</p>
+              <h4>Le résultat</h4>
+              <p>Un processus fiable, transparent et largement automatisé. Chaque agent pouvait être associé à un détail précis de ses commissions, facilitant les contrôles et les vérifications.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Un système automatisé sous Power BI, connecté à la base de données de l'entreprise, calculant les commissions selon les règles métier définies :</p>
+              <ul>
+                <li>Calculer automatiquement les commissions</li>
+                <li>Appliquer des règles spécifiques selon le type d'agent</li>
+                <li>Prendre en compte les différents produits et services</li>
+                <li>Fournir le détail des calculs pour chaque agent</li>
+                <li>Faciliter le traitement des éventuelles réclamations</li>
+              </ul>
+              <p style="margin-top:12px;">Les données étaient actualisées chaque semaine afin de produire les commissions les plus récentes.</p>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Passage de 2 jours de travail pour 2 collaborateurs à moins d'une demi-journée pour une seule personne. Au-delà du gain de temps, un processus plus rapide, plus fiable et plus facilement auditable.</p></div>
+          <div class="techs"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Base de données</span><span>Automatisation des calculs</span></div>
+        </div></div>
+      </article>
+
+      <article class="case rv">
+        <button class="case-head" aria-expanded="false">
+          <span class="case-idx">06</span>
+          <span class="case-t">
+            <h3>Reporting hebdomadaire automatisé de la performance opérationnelle</h3>
+            <span class="org">EDF-Upowa · Power BI &amp; Power Automate</span>
+          </span>
+          <span class="case-tools"><svg class="lgo"><use href="#lg-powerbi"/></svg><svg class="lgo"><use href="#lg-powerautomate"/></svg></span>
+          <span class="case-chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="case-body"><div class="case-inner">
+          <div class="case-cols">
+            <div class="case-block">
+              <h4>Le contexte</h4>
+              <p>Les responsables d'EDF-Upowa avaient besoin d'un suivi régulier de la performance des équipes terrain afin de mesurer l'atteinte des objectifs opérationnels et financiers. L'objectif : disposer chaque semaine d'un rapport fiable, diffusé automatiquement aux différents responsables.</p>
+              <h4>Le résultat</h4>
+              <p>Les responsables recevaient chaque début de semaine un rapport actualisé, sans intervention manuelle, leur permettant de suivre rapidement les performances de l'entreprise.</p>
+            </div>
+            <div class="case-block">
+              <h4>La solution</h4>
+              <p>Une solution combinant Power BI et Power Automate pour produire et distribuer automatiquement un reporting hebdomadaire :</p>
+              <ul>
+                <li>La performance de la semaine</li>
+                <li>Le niveau d'atteinte des objectifs</li>
+                <li>Les tendances de performance</li>
+                <li>Les comparaisons avec les années précédentes</li>
+                <li>Les indicateurs opérationnels des équipes terrain</li>
+                <li>Les indicateurs financiers</li>
+              </ul>
+              <p style="margin-top:12px;">Grâce à Power Automate, le rapport était envoyé automatiquement aux parties prenantes chaque lundi matin.</p>
+            </div>
+          </div>
+          <div class="impact"><h4>Impact</h4><p>Une communication des performances standardisée et une information plus disponible. Les décideurs disposaient d'une vision claire et régulière des résultats, favorisant une prise de décision plus rapide et mieux informée.</p></div>
+          <div class="techs"><span>Power BI</span><span>Power Automate</span><span>Power Query</span><span>DAX</span><span>Reporting automatisé</span></div>
+        </div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= BIBLIOTHÈQUE ================= -->
+<section id="bibliotheque">
+  <div class="glow g-gold" style="width:460px;height:460px;top:8%;right:-180px;"></div>
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Bibliothèque de tableaux de bord</h2>
+    <p class="sec-sub rv">Onze rapports Power BI conçus pour des contextes métier variés — distribution, commerce, finance, réseau de revendeurs et production industrielle.</p>
+
+    <div class="filters rv" id="filters">
+      <button class="active" data-f="all">Tous</button>
+      <button data-f="ventes">Ventes &amp; Pilotage</button>
+      <button data-f="commerce">Commerce &amp; E-commerce</button>
+      <button data-f="distribution">Distribution</button>
+      <button data-f="finance">Finance &amp; Budget</button>
+      <button data-f="production">Production</button>
+    </div>
+
+    <div class="lib" id="lib">
+
+      <button class="dash rv" data-cat="ventes" data-full="images/dashboards/ca-consolide.jpg" data-title="Chiffre d'affaires consolidé multi-régions">
+        <span class="shot">
+          <img src="images/dashboards/ca-consolide-thumb.jpg" alt="Tableau de bord Power BI — Chiffre d'affaires consolidé multi-régions" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Ventes & Pilotage</span>
+          <span class="h4">Chiffre d'affaires consolidé multi-régions</span>
+          <span class="p">1,17 Md de CA suivis sur 4 régions et 4 exercices : Top 5 produits, répartition régionale, analyse volume/valeur et évolution mensuelle. Déclinable en thème clair ou sombre.</span>
+        </span>
+      </button>
+
+
+      <button class="dash rv" data-cat="ventes" data-full="images/dashboards/ca-consolide-sombre.jpg" data-title="Chiffre d'affaires consolidé — variante thème sombre">
+        <span class="shot">
+          <img src="images/dashboards/ca-consolide-sombre-thumb.jpg" alt="Tableau de bord Power BI — Chiffre d'affaires consolidé en thème sombre" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Ventes &amp; Pilotage</span>
+          <span class="h4">Le même rapport, deux identités visuelles</span>
+          <span class="p">Déclinaison du rapport consolidé en thème sombre. Chaque tableau de bord est habillé aux couleurs de l'organisation cliente sans toucher au modèle de données.</span>
+        </span>
+      </button>
+      <button class="dash rv" data-cat="ventes" data-full="images/dashboards/indicateurs-croissance.jpg" data-title="Indicateurs de croissance">
+        <span class="shot">
+          <img src="images/dashboards/indicateurs-croissance-thumb.jpg" alt="Tableau de bord Power BI — Indicateurs de croissance" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Ventes & Pilotage</span>
+          <span class="h4">Indicateurs de croissance</span>
+          <span class="p">Indice de croissance par rapport à l'année de référence, bascule du CA entre canaux (boutique, en ligne, grossiste), matrice année × région et acquisition de nouveaux clients.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="ventes" data-full="images/dashboards/suivi-ventes-objectifs.jpg" data-title="Suivi des ventes contre objectifs">
+        <span class="shot">
+          <img src="images/dashboards/suivi-ventes-objectifs-thumb.jpg" alt="Tableau de bord Power BI — Suivi des ventes contre objectifs" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Ventes & Pilotage</span>
+          <span class="h4">Suivi des ventes contre objectifs</span>
+          <span class="p">Taux d'atteinte des objectifs par jour, par vendeur et par produit, avec une table d'alerte qui isole automatiquement les journées sous l'objectif.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="ventes" data-full="images/dashboards/ventes-multi-pays.jpg" data-title="Suivi des ventes multi-pays">
+        <span class="shot">
+          <img src="images/dashboards/ventes-multi-pays-thumb.jpg" alt="Tableau de bord Power BI — Suivi des ventes multi-pays" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Ventes & Pilotage</span>
+          <span class="h4">Suivi des ventes multi-pays</span>
+          <span class="p">Comparaison CA et quantités contre N-1, répartition par catégorie et cartographie du CA par pays d'Afrique centrale, avec sélecteur d'exercice.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="commerce" data-full="images/dashboards/ecommerce-vetements.jpg" data-title="E-commerce mode — vue d'ensemble">
+        <span class="shot">
+          <img src="images/dashboards/ecommerce-vetements-thumb.jpg" alt="Tableau de bord Power BI — E-commerce mode — vue d'ensemble" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Commerce & E-commerce</span>
+          <span class="h4">E-commerce mode — vue d'ensemble</span>
+          <span class="p">CA, quantités, marge et panier moyen d'une boutique de prêt-à-porter, avec répartition du CA par canal de vente (web, email, WhatsApp, application) et navigation par pages produits, clients et campagnes.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="commerce" data-full="images/dashboards/boutique-telephonie.jpg" data-title="Boutique téléphonie — analyse de marge">
+        <span class="shot">
+          <img src="images/dashboards/boutique-telephonie-thumb.jpg" alt="Tableau de bord Power BI — Boutique téléphonie — analyse de marge" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Commerce & E-commerce</span>
+          <span class="h4">Boutique téléphonie — analyse de marge</span>
+          <span class="p">Taux de marge par catégorie et par opérateur de recharge, Top 5 des produits rentables, CA par marque et table d'alerte sur les produits à faible marge.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="distribution" data-full="images/dashboards/suivi-revendeurs.jpg" data-title="Suivi des revendeurs et des impayés">
+        <span class="shot">
+          <img src="images/dashboards/suivi-revendeurs-thumb.jpg" alt="Tableau de bord Power BI — Suivi des revendeurs et des impayés" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Distribution & Réseau</span>
+          <span class="h4">Suivi des revendeurs et des impayés</span>
+          <span class="p">Réseau de revendeurs sur six villes d'Afrique de l'Ouest et centrale : net encaissé, total impayés, taux d'impayés cartographié et détail par revendeur.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="finance" data-full="images/dashboards/suivi-bancaire.jpg" data-title="Suivi bancaire — dépôts et retraits">
+        <span class="shot">
+          <img src="images/dashboards/suivi-bancaire-thumb.jpg" alt="Tableau de bord Power BI — Suivi bancaire — dépôts et retraits" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Finance & Budget</span>
+          <span class="h4">Suivi bancaire — dépôts et retraits</span>
+          <span class="p">Total déposé, retiré, frais prélevés et nombre de transactions comparés à l'année précédente, avec courbes de dépôts et retraits à date.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="finance" data-full="images/dashboards/modele-budget.jpg" data-title="Modèle de suivi budgétaire">
+        <span class="shot">
+          <img src="images/dashboards/modele-budget-thumb.jpg" alt="Tableau de bord Power BI — Modèle de suivi budgétaire" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Finance & Budget</span>
+          <span class="h4">Modèle de suivi budgétaire</span>
+          <span class="p">Débit, crédit et solde d'une structure, avec une matrice hiérarchique par nature budgétaire et une lecture du solde par projet. Navigation entre vue générale, budget-nature et budget-projet.</span>
+        </span>
+      </button>
+
+      <button class="dash rv" data-cat="production" data-full="images/dashboards/production-volaille.jpg" data-title="Production — abattage volaille">
+        <span class="shot">
+          <img src="images/dashboards/production-volaille-thumb.jpg" alt="Tableau de bord Power BI — Production — abattage volaille" loading="lazy">
+          <span class="shot-badge"><svg class="lgo"><use href="#lg-powerbi"/></svg><span>Power BI</span></span>
+          <span class="shot-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        </span>
+        <span class="info">
+          <span class="tag">Production & Industrie</span>
+          <span class="h4">Production — abattage volaille</span>
+          <span class="p">Tonnage reçu et abattu, rendement et taux de mortalité par centre de production, croisés avec l'heure d'arrivée des lots et le détail opérationnel par calibre.</span>
+        </span>
+      </button>
+
+    </div>
+
+    <p class="lib-note rv">Cliquez sur un tableau de bord pour l'afficher en grand format.</p>
+  </div>
+</section>
+
+<!-- ================= COMPÉTENCES ================= -->
+<section id="competences" style="background:linear-gradient(180deg, transparent, rgba(31,56,100,.18), transparent);">
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Compétences techniques</h2>
+    <p class="sec-sub rv">Les outils réellement utilisés, mission après mission.</p>
+    <div class="skills">
+      <div class="skill rv"><div class="skill-head"><svg class="lgo"><use href="#lg-powerbi"/></svg><h4>BI &amp; Reporting</h4></div><p>Power BI Desktop &amp; Service, Excel, DAX avancé, Power Query (M), Paginated Reports.</p></div>
+      <div class="skill rv"><div class="skill-head"><svg class="lgo"><use href="#lg-powerbi"/></svg><h4>Modélisation</h4></div><p>Star schema, snowflake, relations many-to-many, RLS, gestion des tables de dates.</p></div>
+      <div class="skill rv"><div class="skill-head"><svg class="lgo"><use href="#lg-sql"/></svg><h4>Data Engineering</h4></div><p>SQL, PostgreSQL, intégration ETL, connexions multi-sources (Excel, Google Sheets).</p></div>
+      <div class="skill rv"><div class="skill-head"><svg class="lgo"><use href="#lg-python"/></svg><h4>Langages</h4></div><p>Python, SQL, DAX, M (Power Query), VBA.</p></div>
+      <div class="skill rv"><div class="skill-head"><svg class="lgo"><use href="#lg-powerautomate"/></svg><h4>Méthodes</h4></div><p>Recueil de besoins, définition de KPIs, pilotage de la performance, storytelling data.</p></div>
+      <div class="skill rv"><h4>Langues</h4><p>Français (natif) · Anglais (professionnel).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="glow g-night" style="width:560px;height:560px;bottom:-200px;left:50%;transform:translateX(-50%);"></div>
+  <div class="wrap">
+    <div class="divider rv"></div>
+    <h2 class="sec-title rv">Travaillons ensemble</h2>
+    <p class="sec-sub rv">Un tableau de bord à concevoir, un reporting à automatiser ou une équipe à former ? Disponible pour des missions à distance ou en présentiel à Yaoundé.</p>
+    <div class="contact-grid">
+      <a class="cbox rv" href="mailto:tseguiwedze@gmail.com">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div><b>Email</b><span>tseguiwedze@gmail.com</span></div>
+      </a>
+      <a class="cbox rv" href="https://www.linkedin.com/in/armelle-tsegui" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <div><b>LinkedIn</b><span>/in/armelle-tsegui</span></div>
+      </a>
+      <a class="cbox rv" href="#realisations">
+        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <div><b>Réalisations</b><span>Six études de cas détaillées</span></div>
+      </a>
+      <a class="cbox rv" href="#" onclick="return false;" style="cursor:default;">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><b>Localisation</b><span>Yaoundé, Cameroun · Missions à distance</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Armelle Tsegui. Tous droits réservés.</p>
+    <p class="sig">Data &amp; Décision · Business Intelligence · Power BI · Formation</p>
+  </div>
+</footer>
+
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Aperçu du tableau de bord">
+  <button class="viewer-close" id="viewerClose" aria-label="Fermer">&times;</button>
+  <button class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Précédent">&#8249;</button>
+  <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Suivant">&#8250;</button>
+  <figure>
+    <img id="viewerImg" src="" alt="">
+    <figcaption id="viewerCap"></figcaption>
+  </figure>
+</div>
+
+<script>
+  // menu mobile
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', ()=> navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navlinks.classList.remove('open')));
+
+  // apparition au défilement
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // études de cas dépliables
+  document.querySelectorAll('.case-head').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const card = btn.closest('.case');
+      const body = card.querySelector('.case-body');
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.case.open').forEach(c=>{
+        c.classList.remove('open');
+        c.querySelector('.case-body').style.maxHeight = null;
+        c.querySelector('.case-head').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        card.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  window.addEventListener('resize', ()=>{
+    const open = document.querySelector('.case.open .case-body');
+    if(open){ open.style.maxHeight = open.scrollHeight + 'px'; }
+  });
+
+  // filtres bibliothèque
+  const filters = document.getElementById('filters');
+  const dashes = document.querySelectorAll('#lib .dash');
+  filters.addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    filters.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.f;
+    dashes.forEach(d=>{ d.style.display = (f==='all'||d.dataset.cat===f) ? '' : 'none'; });
+  });
+
+
+  // visionneuse des tableaux de bord
+  const viewer   = document.getElementById('viewer');
+  const vImg     = document.getElementById('viewerImg');
+  const vCap     = document.getElementById('viewerCap');
+  const allDash  = Array.from(document.querySelectorAll('#lib .dash'));
+  let vIndex = 0;
+
+  function visibleDash(){ return allDash.filter(d => d.style.display !== 'none'); }
+  function showDash(i){
+    const list = visibleDash();
+    if(!list.length) return;
+    vIndex = (i + list.length) % list.length;
+    const d = list[vIndex];
+    vImg.src = d.dataset.full;
+    vImg.alt = d.dataset.title;
+    vCap.textContent = d.dataset.title;
+  }
+  function openViewer(d){
+    showDash(visibleDash().indexOf(d));
+    viewer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('viewerClose').focus();
+  }
+  function closeViewer(){
+    viewer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  allDash.forEach(d => d.addEventListener('click', ()=>openViewer(d)));
+  document.getElementById('viewerClose').addEventListener('click', closeViewer);
+  document.getElementById('viewerPrev').addEventListener('click', ()=>showDash(vIndex-1));
+  document.getElementById('viewerNext').addEventListener('click', ()=>showDash(vIndex+1));
+  viewer.addEventListener('click', e=>{ if(e.target===viewer) closeViewer(); });
+  document.addEventListener('keydown', e=>{
+    if(!viewer.classList.contains('open')) return;
+    if(e.key==='Escape') closeViewer();
+    if(e.key==='ArrowLeft') showDash(vIndex-1);
+    if(e.key==='ArrowRight') showDash(vIndex+1);
+  });
+
+  // lien de navigation actif
+  const secs = document.querySelectorAll('section[id], header[id]');
+  const links = document.querySelectorAll('.navlinks a');
+  const spy = new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+e.target.id));
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>spy.observe(s));
+</script>
+</body>
+</html>
